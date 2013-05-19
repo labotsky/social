@@ -1,0 +1,25 @@
+.navbar.navbar-inverse
+  .navbar-inner
+    %a.brand{:href => "#"} Social Network
+#container
+  .row
+    .span5.pull-left
+      .hero-unit{:style => "padding:10px"}
+        %form.form-signin
+          %h2.form-signin-heading Войти
+          %input.input-block-level{:placeholder => "Email address", :type => "text"}/
+          %input.input-block-level{:placeholder => "Password", :type => "password"}/
+          %button.btn.btn-large.btn-primary{:type => "submit"} Войти
+      %img.logo{:alt => "", :src => "img/socseti.jpg"}/
+    .span7.pull-right
+      .hero-unit{:style => "padding:10px"}
+        %h2 Social Network
+        %p Универсальное средство общения и поиска знакомых. Здесь можно посмотреть на людей, показать себя, поделиться мыслями, узнать что нового у старых друзей и поискать друзей новых.
+        %div
+          %ul
+            %li Доброжелательная атмосфера для таких же людей
+            %li Быстрая и простая регистрация
+            %li Сделано с душой и от чистого сердца
+            %li Мы за здоровье человека и общества
+        %button.btn.btn-large.btn-block.btn-success{:type => "button"} Присоединиться
+        %h6 Разработал Сергей Лабоцкий на Ruby on Rails.
