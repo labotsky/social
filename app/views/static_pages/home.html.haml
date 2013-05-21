@@ -1,6 +1,3 @@
-.navbar.navbar-inverse
-  .navbar-inner
-    %a.brand{:href => "#"} Social Network
 #container
   .row
     .span5.pull-left
@@ -10,7 +7,7 @@
           %input.input-block-level{:placeholder => "Email address", :type => "text"}/
           %input.input-block-level{:placeholder => "Password", :type => "password"}/
           %button.btn.btn-large.btn-primary{:type => "submit"} Войти
-      %img.logo{:alt => "", :src => "img/socseti.jpg"}/
+      = image_tag('socseti.jpg', alt:'social', class:'logo')      
     .span7.pull-right
       .hero-unit{:style => "padding:10px"}
         %h2 Social Network
