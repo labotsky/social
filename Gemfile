@@ -23,6 +23,7 @@ end
 group :development, :test do 
   gem 'rspec-rails'
   gem 'capybara'
+  gem 'annotate'
 end
 
 gem 'jquery-rails'
@@ -31,7 +32,7 @@ gem 'bootstrap-sass'
 gem 'haml'
 
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
