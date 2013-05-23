@@ -24,12 +24,15 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'annotate'
+  gem 'factory_girl_rails'
 end
 
 gem 'jquery-rails'
 gem 'pg'
 gem 'bootstrap-sass'
 gem 'haml'
+gem 'simple_form'
+gem 'country_select'
 
 # To use ActiveModel has_secure_password
  gem 'bcrypt-ruby', '~> 3.0.0'

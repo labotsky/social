@@ -1,2 +1,12 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<% provide(:title, 'Sign up') %>
+<div id="container">
+		<div class="row register">
+			<div class="span7">
+				<div class="hero-unit" style="padding:10px">				
+			        <h2 class="form-signin-heading">Регистрация</h2>				        
+			    	<%= render 'form' %>
+			    	<%= link_to 'Вернуться', root_path, class: 'btn btn-block btn-large btn-success' %>				    
+				</div>				
+			</div>			
+		</div>		
+	</div>
