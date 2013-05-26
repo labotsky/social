@@ -17,8 +17,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:success] = 'Вы успешно зарегистрированы.'
       redirect_to @user
-    else
-      flash.now[:error] = 'Возникли ошибки при регистрации.'
+    else      
       render :new
     end
   end

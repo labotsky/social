@@ -13,8 +13,8 @@ describe "User Pages" do
 	end
 
 	describe "signup" do
-		before{ visit signup_path }
-		let(:submit){ "Все заполнил" }
+		before{ visit root_path }
+		let(:submit){ "Присоединиться" }
 		describe "with invalid information" do
 			it "should not create a user" do
 				expect{ click_button submit }.not_to change(User, :count)
