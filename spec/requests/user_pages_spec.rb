@@ -30,7 +30,10 @@ describe "User Pages" do
 				fill_in "user_name",						with:"Sergey"
 				fill_in "user_surname",						with:"Labotsky"
 				fill_in "user_email",						with:"sergey1993.08@mail.ru"
-				select('Belarus', :from => 'user_country')
+				select('Belarus', 							:from => 'user_country')
+				select "29", 								:from => "user_date_3i"
+      			select "мая", 								:from => "user_date_2i"
+      			select "1993", 								:from => "user_date_1i"
 				fill_in "user_sity",						with:"Minsk"				
 				fill_in "user_password",					with:"foobar"
 				fill_in "user_password_confirmation",		with:"foobar"

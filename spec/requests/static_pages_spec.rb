@@ -12,11 +12,9 @@ describe "Static Pages" do
 		it {should have_selector('title', :text => 'Social Network')} 	
 	end
 
-	describe "Getting start Page" do
+	describe "Getting start Page" do		
+		before { visit getting_started_path(user) }		
 		let(:user){ FactoryGirl.create(:user) }
-		before do			
-			visit getting_started_path(user)
-		end
 		it {should have_content('Приветствуем вас')}
 		it {should have_content('Загрузить фотографию')}
 		it {should have_content('Пустите меня в Дестини!')}

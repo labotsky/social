@@ -37,6 +37,6 @@ class UsersController < ApplicationController
 
   def getting_started
     #current_user
-    @user =  User.find_by_id(1)    
+    @user =  User.first 
   end
 end
