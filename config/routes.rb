@@ -3,7 +3,13 @@ Social::Application.routes.draw do
   get "static_pages/home"
   root :to => 'static_pages#home'
   match '/signup', to: 'users#new'
-  resources :users
+  resources :users do
+    get 'getting_started', :on => :member
+  end
+  match "getting_started" => "users#getting_started"
+
+
+ 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

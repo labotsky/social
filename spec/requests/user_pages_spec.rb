@@ -19,6 +19,10 @@ describe "User Pages" do
 			it "should not create a user" do
 				expect{ click_button submit }.not_to change(User, :count)
 			end
+			it "should have error alert" do
+				click_button submit
+				should have_selector('div.message_error',text: 'Извините, некоторые поля заполнены неверно.')
+			end 
 		end
 
 		describe "with valid information" do
@@ -27,8 +31,7 @@ describe "User Pages" do
 				fill_in "user_surname",						with:"Labotsky"
 				fill_in "user_email",						with:"sergey1993.08@mail.ru"
 				select('Belarus', :from => 'user_country')
-				fill_in "user_sity",						with:"Minsk"
-				fill_in "user_date",						with:"13.05.1993"
+				fill_in "user_sity",						with:"Minsk"				
 				fill_in "user_password",					with:"foobar"
 				fill_in "user_password_confirmation",		with:"foobar"
 			end
@@ -37,7 +40,7 @@ describe "User Pages" do
 			end
 			it "should have alert success" do
 				click_button submit
-				should have_selector('div.alert.alert-success',text: 'Вы успешно зарегистрированы.')
+				should have_content('Приветствуем вас')
 			end			
 		end
 	end	

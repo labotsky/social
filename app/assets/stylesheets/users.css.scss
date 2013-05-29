@@ -3,10 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .simple_form label {
-  border: none;
-  line-height: 10px;
-  font-size:11px;
-  color: #ccc;		
+	border: none;
+	line-height: 10px;
+	font-size:11px;
+	color: #ccc;		
 }
 
 .simple_form abbr {
@@ -15,8 +15,41 @@
 }
 
 .simple_form .error {
- font-size:10px;
- margin-bottom:10px;
- padding:0;
- line-height:0;
+	font-size:10px;
+	margin-bottom:10px;
+	padding:0;
+	line-height:0;
+}
+
+.message_error{
+	padding-top: 5px;
+	padding-bottom: 10px;
+	background: none repeat scroll 0% 0% #B30506;
+	margin-top:-19px;
+	opacity:0;
+	box-shadow: 1px 1px 5px #000;
+}
+
+.message_success{
+	padding-top: 5px;
+	padding-bottom: 10px;
+	background: none repeat scroll 0% 0% #1B6501;
+	margin-top:-19px;
+	opacity:0;
+	box-shadow: 1px 1px 5px #000;
+}
+
+.alert_message{
+	margin: 0px auto;
+	color: #fff;
+	width:1224px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size:28px;
+	line-height: 40px;
+}
+
+.progress{
+	width:100px;
+	height:10px;
+	display:none;
 }

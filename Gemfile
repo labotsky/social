@@ -16,7 +16,7 @@ group :assets do
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby
-
+  gem 'jquery-fileupload-rails'
   gem 'uglifier', '>= 1.0.3'
 end
 
@@ -33,6 +33,8 @@ gem 'bootstrap-sass'
 gem 'haml'
 gem 'simple_form'
 gem 'country_select'
+gem 'carrierwave'
+gem 'rmagick'
 
 # To use ActiveModel has_secure_password
  gem 'bcrypt-ruby', '~> 3.0.0'

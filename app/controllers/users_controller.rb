@@ -16,9 +16,27 @@ class UsersController < ApplicationController
   	@user = User.new(params[:user])
     if @user.save
       flash[:success] = 'Вы успешно зарегистрированы.'
-      redirect_to @user
-    else      
+      redirect_to getting_started_path
+    else
+      flash.now[:error] = 'Извините, некоторые поля заполнены неверно.'      
       render :new
     end
+  end
+
+  def edit
+    @user =  User.find_by_id(1)
+    respond_to do |format|
+       format.js     
+    end
+  end
+
+  def update
+    @user =  User.find_by_id(1)    
+    @user.update_attributes(params[:user])       
+  end
+
+  def getting_started
+    #current_user
+    @user =  User.find_by_id(1)    
   end
 end

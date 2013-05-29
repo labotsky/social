@@ -6,10 +6,9 @@
     = csrf_meta_tags
   %body
     = render 'layouts/header'
-    .row
-      .span12.offset3
-        - flash.each do |key,value|
-          %div{:class => "alert alert-#{key}"}
-            %button.close{"data-dismiss" => "alert", :type => "button"} ×
-            = value           
-    = yield
+    .flash_message
+      - flash.each do |key,value|
+        = content_tag :div, :class => "message_#{key}" do       
+          = content_tag(:div, value, class: "alert_message")                                         
+    #container      
+      = yield
