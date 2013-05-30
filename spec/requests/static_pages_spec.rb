@@ -20,5 +20,6 @@ describe "Static Pages" do
 		it {should have_content('Пустите меня в Дестини!')}
 		it {should have_content(user.name)}
 		it {should have_content(user.surname)}
+		it {should have_css("img[src='/images/fallback/register_default.png']")}		
 	end
 end

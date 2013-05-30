@@ -24,14 +24,14 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user =  User.find_by_id(1)
+    @user =  User.first
     respond_to do |format|
        format.js     
     end
   end
 
   def update
-    @user =  User.find_by_id(1)    
+    @user =  User.first    
     @user.update_attributes(params[:user])       
   end
 

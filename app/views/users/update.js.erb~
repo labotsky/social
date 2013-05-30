@@ -1,0 +1,5 @@
+<% if @user.new_record? %>
+	show_flash('error', 'Ошибка! Допустимые форматы: jpg,jpeg,png.');
+<% else %>	
+	$(".img_ava").html("<%= j render(@user) %>");	
+<% end %>
