@@ -1,1 +1,0 @@
-jQuery(function(){$("#fileupload").fileupload({progress:function(e,o){$(".progress").fadeIn(100);var r=parseInt(100*(o.loaded/o.total),10);$(".progress .bar").css("width",r+"%")},done:function(){$(".progress").fadeOut(100)}})});
