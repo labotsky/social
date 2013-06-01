@@ -53,3 +53,21 @@
 	height:10px;
 	display:none;
 }
+
+.end, .prev, .next{
+	display:none;
+}
+
+.popover-content{
+	font-size:12px;
+	line-height:20px;
+	font-weight: bold;
+}
+
+.popover-inner p{
+	display:none;
+}
+
+#name{
+	display:inline;
+}

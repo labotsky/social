@@ -30,6 +30,7 @@ end
 gem 'jquery-rails'
 gem 'pg'
 gem 'bootstrap-sass'
+gem 'bootstrap-tour-rails'
 gem 'haml'
 gem 'simple_form'
 gem 'country_select'

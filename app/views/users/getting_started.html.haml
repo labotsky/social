@@ -2,12 +2,10 @@
   .hero-unit
     %h1.center Приветствуем вас, #{@user.name}!
     %p.center_p Сообщество Дестини радо приветствовать вас!
+    %br
+    %br
     .block_avatar       
-      %h2 Кто вы?
-      %span.label.label-info
-        Информация
-      %br  
-      %h6 Проверьте ваше имя и фамилию, также вы можете загрузить(изменить) вашу фотографию.
+      %h2#name Кто вы?     
       %h4 Ваше имя: #{@user.name}      
       %h4 Ваша фамилия: #{@user.surname}       
       %label Вашa фотография
@@ -24,9 +22,9 @@
             = f.file_field :image, name: "user[image]"
            
                      
-  %div.clear         
-  .span3.offset1      
-    = link_to '#',class: 'btn btn-success btn-block button_start' do
-      %img{:src => "/assets/logo1.png", :class => 'logos_mini'} 
-      Пустите меня в Дестини!            
+      %div.clear         
+      .span3  
+        = link_to '#',class: 'btn btn-success btn-block button_start' do
+          %img{:src => "/assets/logo1.png", :class => 'logos_mini'} 
+          Пустите меня в Дестини!            
       
