@@ -8,7 +8,7 @@ describe "Authentication Pages" do
 		before {visit root_path}
 		describe "with invalid information" do
 			before {click_button "Войти"}
-			it {should have_selector('.message_error', text:'Неверный email или пароль.')}
+			it {should have_selector('.message_notice', text:'Неверный email или пароль.')}
 		end
 		describe "with valid information" do
 			let(:user) {FactoryGirl.create(:user)}

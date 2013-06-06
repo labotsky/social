@@ -4,8 +4,14 @@ describe "User Pages" do
 	subject{ page }
 	describe "profile page" do
 		let(:user){ FactoryGirl.create(:user) }
-		before{ visit user_path(user) }
-		it{ should have_selector('h6', text: user.name) }
+		before do
+			visit root_path
+			fill_in "session_email", with: user.email.upcase
+			fill_in "session_password", with: user.password
+			click_button "Войти"
+			visit profile_path
+		end	
+		it{ should have_content(user.name) }
 		it{ should have_content(user.surname) }
 		it{ should have_content(user.date) }
 		it{ should have_content(user.country) }
@@ -21,7 +27,7 @@ describe "User Pages" do
 			end
 			it "should have error alert" do
 				click_button submit
-				should have_selector('div.message_error',text: 'Извините, некоторые поля заполнены неверно.')
+				should have_selector('div.message_notice',text: 'Извините, некоторые поля заполнены неверно.')
 			end 
 		end
 
