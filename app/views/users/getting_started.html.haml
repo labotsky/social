@@ -1,30 +1,27 @@
-.row
-  .hero-unit
-    %h1.center Приветствуем вас, #{@user.name}!
-    %p.center_p Сообщество Дестини радо приветствовать вас!
-    %br
-    %br
-    .block_avatar       
-      %h2#name Кто вы?     
-      %h4 Ваше имя: #{@user.name}      
-      %h4 Ваша фамилия: #{@user.surname}       
-      %label Вашa фотография
-      .progress.progress-striped.active
-        .bar{:style => "width: 0%; height:10px; border-radius"}
-      .img_ava  
-        =image_tag @user.image_url(:register), :class => 'avatar'   
-      =form_for @user, :html => { :multipart => true, :id => "fileupload"  } do |f|
-        .fileupload-buttonbar
-          %span.btn.fileinput-button.button-avatar
-            %i.icon-plus
-            %span
-              = 'Загрузить фотографию'              
-            = f.file_field :image, name: "user[image]"
-           
-                     
-      %div.clear         
-      .span3  
-        = link_to '#',class: 'btn btn-success btn-block button_start' do
-          %img{:src => "/assets/logo1.png", :class => 'logos_mini'} 
-          Пустите меня в Дестини!            
-      
+.hero-unit.wrapper
+  %h1.center Приветствуем вас, #{current_user.name}!
+  %p.center_p Сообщество Дестини радо приветствовать вас!
+  %br
+  %br
+  .block_avatar       
+    %h2#name Кто вы?     
+    %h4 Ваше имя: #{current_user.name}      
+    %h4 Ваша фамилия: #{current_user.surname}       
+    %label Вашa фотография
+    .progress.progress-striped.active
+      .bar{:style => "width: 0%; height:10px; border-radius"}
+    .img_ava  
+      = image_tag current_user.image_url(:register), :class => 'avatar'   
+    = form_for current_user, :html => { :multipart => true, :id => "fileupload"  } do |f|
+      .fileupload-buttonbar
+        %span.btn.fileinput-button.button-avatar
+          %i.icon-plus
+          %span
+            = 'Загрузить фотографию'              
+          = f.file_field :image, name: "user[image]"                     
+    %div.clear         
+    .span3  
+      = link_to profile_path, class: 'btn btn-success btn-block button_start' do
+        = image_tag 'logo1.png', :class => 'logos_mini'
+        Пустите меня в Дестини!            
+    

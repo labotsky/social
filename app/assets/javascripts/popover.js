@@ -1,10 +1,6 @@
 $(document).ready(function() {
 	var tour = new Tour();
-	tour.addStep({
-		delay: { 
-                     show: 7500, 
-                     hide: 1000
-                  },
+	tour.addStep({		
 	    element: ".fileinput-button", // string (jQuery selector) - html element next to which the step popover should be shown
 	       title : '<span class="text-info"><strong>Шаг 2</strong></span>'+
                     '<button type="button" id="close" class="close" onclick="$(&quot;.fileinput-button&quot;).popover(&quot;hide&quot;);">&times;</button>', // string - title of the popover
@@ -44,10 +40,10 @@ $(document).ready(function() {
 	},1000);
 	setTimeout(function() {
 		tour.showStep(0);
-	},2000);
+	},3000);
 	setTimeout(function() {
 		tour.showStep(1);
-	},3000);
+	},5000);
 	
 });
 

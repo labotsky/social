@@ -1,8 +1,24 @@
-.navbar.navbar-inverse
+.navbar.navbar-inverse.navbar-fixed-top
   .navbar-inner
-    %a.brand{:href => "#"} DESTINY
-    %img{:src => "/assets/logo1.png", :class => 'logos'}  
-    .span7.pull-right.navbar-form.signin
-      %input{:placeholder => "Email address", :type => "text"}/
-      %input{:placeholder => "Password", :type => "password"}/
-      %button.btn.btn-small.btn-primary{:type => "submit"} Войти
+    .centr
+      %a.brand{:href => "#"} DESTINY
+      %img{:src => "/assets/logo1.png", :class => 'logos'}      
+      - if !signed_in?
+        .span7.pull-right.navbar-form
+          = simple_form_for(:session, url: sessions_path) do |f|
+            = f.input :email, label:false, placeholder: 'Email', input_html:{class: 'input-block-level'}
+            = f.input :password, label:false, placeholder: 'Пароль', input_html:{class: 'input-block-level'}
+            = f.submit 'Войти', class: 'btn btn_enter'
+      - else             
+        %ul.pull-right.nav.span4
+          %li#fat-menu.dropdown          
+            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+              %span.img_ava_top
+                = image_tag current_user.image_url(:top), :class => 'top_image'
+              = current_user.email
+              %b.caret
+            %ul.dropdown-menu
+              %li= link_to "Профиль", current_user
+              %li= link_to "Настройки", '#'
+              %li.divider
+              %li= link_to "Выйти", signout_path, method: "delete"   

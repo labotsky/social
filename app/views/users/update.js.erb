@@ -1,5 +1,6 @@
-<% if @user.new_record? %>
-	show_flash('error', 'Ошибка! Допустимые форматы изображения: jpg, jpeg, png.');
+<% if current_user.new_record? %>
+	show_flash('notice', 'Ошибка! Допустимые форматы изображения: jpg, jpeg, png.');
 <% else %>	
-	$(".img_ava").html("<%= j render(@user) %>");	
+	$(".img_ava").html("<%= j render('user') %>");
+	$(".img_ava_top").html("<%= j render('topimage') %>");	
 <% end %>

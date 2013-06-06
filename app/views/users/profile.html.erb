@@ -1,0 +1,153 @@
+<% content_for :head do %>
+    <%= stylesheet_link_tag 'profile' %>
+<% end %>
+<div class="row wrapp_profile">			
+		<div class="span5 left_block">
+      <p class="user_mind">Я хочу сказать, что...</p>  
+			<ul class="thumbnails">
+	    		<li class="span4">
+            <%= link_to current_user.image_url, class: 'fancybox' do %>   
+	    			  <%= image_tag current_user.image_url(:register), class: "avatar" %>
+            <% end %>
+	    			<p class="info_about">
+	    			<strong>
+	    				<%= current_user.name %> 
+	    				<%= current_user.surname %>
+	    			</strong>
+	    			<br>
+	    			<strong>Страна:</strong> <%= current_user.country %><br>
+	    			<strong>Город:</strong> <%= current_user.sity %><br>
+	    			<strong>День Рождения:</strong> <br> <%= current_user.date %></p>   
+	    		</li>    
+			</ul>			
+          <div>
+                <ul class="nav nav-list">
+                	<li>
+                		<%= link_to '#' do %>
+                			<i class="icon-home"></i>
+                			Моя страница
+                		<% end %>
+                	</li>
+                	<li>
+                		<%= link_to "#" do %>
+                			<i class="icon-user"></i>
+                			Мои друзья
+                			<span class="badge badge-info">+5</span>
+                		<% end %>
+                	</li>
+				          <li>
+                		<%= link_to "#" do %>
+                			<i class="icon-envelope"></i>
+                			Мои сообщения
+                			<span class="badge badge-info">+3</span>
+                		<% end %>
+                	</li>
+				          <li>
+                		<%= link_to "#" do %>
+                			<i class="icon-picture"></i>
+                			Мои фотографии		                			
+                		<% end %>
+                	</li>						   
+			    </ul>
+          </div><!--/.well -->
+
+          
+
+          <div>
+          	<div class="nav-header">Мои друзья</div>
+          	<ul class="thumbnails">
+          		<li>
+          			<%= link_to current_user.image_url, class: 'fancybox' do %>   
+                 <img src="http://placehold.it/50x50">
+                <% end %>          			
+          		</li>
+          		<li>
+          			<img src="http://placehold.it/50x50">
+          			
+          		</li>
+          		<li>
+          			<img src="http://placehold.it/50x50">
+          			
+          		</li>
+          		<li>
+          			<img src="http://placehold.it/50x50">
+          			
+          		</li>
+          		<li>
+          			<img src="http://placehold.it/50x50">
+          			
+          		</li>
+          		<li>
+          			<img src="http://placehold.it/50x50">
+          			
+          		</li>
+          		<li>
+          			<img src="http://placehold.it/50x50">
+          			
+          		</li>
+          		<li>
+          			<img src="http://placehold.it/50x50">
+          			
+          		</li>
+          		<li>
+          			<img src="http://placehold.it/50x50">
+          			
+          		</li>
+          	</ul>
+          </div>	
+    	</div><!--/span-->			
+
+	<div class="span7">	         	
+             	
+     	<textarea id="status_message_fake_text" tabindex="1" rows="2" placeholder="Начать беседу..."
+     	cols="40" data-mentions-input="true" style=""></textarea>     
+     	<button class="btn btn-mini pull-right btnarea" type="button">Отправить</button>
+     	<button class="btn btn-mini btn-primary pull-right btnarea" type="button">Preview</button>
+    </div> 
+    <div class="span7">	
+     	<div class="post">
+     		<ul>
+     			<li>
+					<div class="row">
+						<div class="span2">
+     					<%= image_tag current_user.image_url(:profile), class: "avatar_small" %>
+     					</div>
+     					<div class="span5">
+     						<div class="row">
+     							<p class="username">
+     								<%= current_user.name %> <%= current_user.surname %> -
+     								<span class="dateuser">около минуты назад</span>
+     							</p>         						
+     							<p class="message">Messageаываываываываыва
+                    ыв
+                    аыв
+                    аываыва</p>         						
+     							<p class="dateuser">Мне нравится</p>	
+     						</div>
+     					</div>	
+     				</div>
+            <div class="close">x</div>	         				
+     			</li>
+     			<li>
+					<div class="row">
+						<div class="span2">
+     					<%= image_tag current_user.image_url(:profile), class: "avatar_small" %>
+     					</div>
+     					<div class="span5">
+     						<div class="row">
+     							<p class="username">
+     								<%= current_user.name %> <%= current_user.surname %> -
+     								<span class="dateuser">около минуты назад</span>
+     							</p>         						
+     							<p class="message">Message</p>
+                  <a href="#" class="dateuser">Мне нравится</a>  
+     							<p class="date_like"><i class="icon-heart"></i><span>1</span></p>	
+     						</div>
+     					</div>	
+     				</div>
+            <div class="close">x</div>           	         				
+     			</li>
+     		</ul>
+     	</div>	         	
+	</div>
+</div>

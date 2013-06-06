@@ -36,7 +36,7 @@ gem 'simple_form'
 gem 'country_select'
 gem 'carrierwave'
 gem 'rmagick'
-
+gem 'fancybox-rails'
 # To use ActiveModel has_secure_password
  gem 'bcrypt-ruby', '~> 3.0.0'
 

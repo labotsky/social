@@ -1,7 +1,8 @@
 @import "bootstrap"
 
 body
-  min-width: 1024px
+  min-width: 950px
+  background-image: url(bg.png)
   > .navbar .brand
     padding-right: 0px
     padding-left: 0px
@@ -10,10 +11,6 @@ body
     font-weight: bold
     color: #fff
     text-shadow: 0px 1px 0px rgba(255, 255, 255, 0.1), 0px 0px 30px rgba(255, 255, 255, 0.125)
-
-#container
-  margin: 0 auto
-  width: 1224px
 
 .navbar-inner
   border-radius: 0
@@ -28,16 +25,28 @@ body
 .span4
   width: 250px
 
+.span7
+  width: 508px  
+
 .badge
   border-radius: 0
 
 .hero-unit
   padding: 0px
   background-color: rgb(245, 245, 245)
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.05) inset
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.8)
   border-radius: 0
   margin-bottom: 7px
   height: 550px
+  margin-top: 45px
+
+.wrapper
+  padding: 0px
+  background-color: rgb(245, 245, 245)  
+  border-radius: 0
+
+.left_block
+  border-right: 1px solid #ccc
 
 .status
   float: right
@@ -70,14 +79,19 @@ h6
   margin-top: 10px
   margin-bottom: 10px
 
+.info_about
+  float: right
+  font-size: 13px
+
 .photo_gallery img
   float: left
   margin-right: 3px
   margin-left: 3px
 
 textarea
-  width: 620px
-  height: 30px
+  width: 510px 
+  resize: none
+  border-radius: 0px
 
 .span9
   width: 620px
@@ -92,8 +106,9 @@ textarea
     border-bottom: 1px solid #ccc
     margin-left: -24px
     margin-bottom: 10px
+    padding-bottom: 20px
+    position: relative
   p
-    font-size: 11px
     margin-bottom: 7px
     padding: 0
 
@@ -101,6 +116,11 @@ textarea
   color: rgb(58, 135, 173)
   font-weight: bold
   margin-top: -2px
+  font-size: 11px
+  font-weight: bold
+
+.message
+  font-size: 12px  
 
 .post .span2
   width: 63px
@@ -118,11 +138,8 @@ textarea
   padding: 0
   margin: 0
 
-.logo
-  position: absolute
-  left: -35px
-  bottom: -300px
-  width: 700px
+.logo 
+  width: 400px
 
 .right_block
   position: relative
@@ -138,9 +155,9 @@ textarea
     list-style-type: none
     line-height: 30px
 
-
 .brand
-  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.9) !important  
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.9) !important
+  padding: 10px 0px !important 
 
 .register
   margin: 0 auto
@@ -161,11 +178,16 @@ select
   text-align: center 
  
 .avatar
-  border-radius: 5px 5px 5px 5px
   box-shadow: 0px 1px 2px rgb(102, 102, 102)
   float: left
   width: 100px
-  height: 100px 
+  height: 100px
+
+.avatar_small
+  box-shadow: 0px 1px 2px rgb(102, 102, 102) 
+  float: left
+  width: 50px
+  height: 50px
 
 .block_avatar
   padding-left: 100px
@@ -177,8 +199,7 @@ select
   margin: 10px
 
 .logos
-  margin: 8px 0 0 15px
-  
+  margin: 8px 0 0 15px  
 
 .logos_mini
   width: 22px
@@ -207,8 +228,45 @@ select
 
 .button_start
   margin-top: 50px
-  margin-left: -20px  
-  
-  
+  margin-left: -20px
 
-     
+.brand
+  margin-left: -17px !important
+
+.top_image
+  margin: -4px 5px -4px 0px
+  box-shadow: 1px 1px 0px #000
+
+.centr
+  width: 950px
+  margin: 0px auto
+
+.nav-list
+  padding-left: 0px
+  margin-left: -18px
+
+.thumbnails > li
+  float: left
+  margin-bottom: 2px
+  margin-left: 2px
+  
+.dateuser
+  color: rgb(153, 153, 153)
+  font-size: 10px
+
+.btnarea
+  display: none
+
+.user_mind
+  margin-left: -18px
+  font-size: 12px
+  font-weight: bold
+  color: rgb(58, 135, 173)
+
+.close
+  position: absolute
+  top: 0px 
+  right: 10px
+  font-size: 14px
+  font-weight: bold
+  display: none        

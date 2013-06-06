@@ -2,13 +2,15 @@
   %head
     %title= full_title(yield(:title))
     = stylesheet_link_tag    "application", :media => "all"
+    = yield :head    
     = javascript_include_tag "application"
     = csrf_meta_tags
-  %body
-    = render 'layouts/header'
-    .flash_message
+  %body    
+    .row
+      = render 'layouts/header'
+    .flash_message.centr
       - flash.each do |key,value|
         = content_tag :div, :class => "message_#{key}" do       
           = content_tag(:div, value, class: "alert_message")                                         
     #container      
-      = yield
+      = yield      

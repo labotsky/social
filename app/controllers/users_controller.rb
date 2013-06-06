@@ -6,37 +6,42 @@ class UsersController < ApplicationController
 
   def new
   	@user = User.new
-  end
-
-  def show
-  	@user = User.find(params[:id])
-  end
+  end  
 
   def create
   	@user = User.new(params[:user])
     if @user.save
-      flash[:success] = 'Вы успешно зарегистрированы.'
+      sign_in @user
+      flash[:notice] = 'Вы успешно зарегистрированы.'
       redirect_to getting_started_path
     else
-      flash.now[:error] = 'Извините, некоторые поля заполнены неверно.'      
+      flash.now[:notice] = 'Извините, некоторые поля заполнены неверно.'      
       render :new
     end
   end
 
   def edit
-    @user =  User.first
+    @user =  current_user
     respond_to do |format|
        format.js     
     end
   end
 
   def update
-    @user =  User.first    
+    @user =  current_user
     @user.update_attributes(params[:user])       
   end
 
   def getting_started
-    #current_user
-    @user =  User.first 
+     unless signed_in?
+      redirect_to root_url
+     end   
   end
+
+  def profile
+    unless signed_in?
+      redirect_to root_url
+     end    
+  end
+
 end
