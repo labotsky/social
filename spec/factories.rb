@@ -8,5 +8,9 @@ FactoryGirl.define do
 		date	"1993-05-13"
 		password	"foobar"
 		password_confirmation	"foobar"
+	end
+	factory :micropost do
+		content "Lorem ipsum"
+		user
 	end	
 end

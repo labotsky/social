@@ -1,0 +1,30 @@
+<% current_user.microposts.each do |micropost|%>
+<li>
+	<div class="row">
+		<div class="span2">
+				<%= image_tag current_user.image_url(:profile), class: "avatar_small" %>
+				</div>
+				<div class="span5">
+					<div class="row">
+						<p class="username">
+							<%= current_user.name %> <%= current_user.surname %> -
+							<span class="dateuser"><%= time_ago_in_words(micropost.created_at) %> назад.</span>
+						</p>         						
+						<p class="message"><%=micropost.content %></p>
+
+						<p class="date_like">
+							<%if @current_user.present?%>					
+								<%= content_tag(:span, toggle_like_button(micropost, @current_user), 
+														class: "like_button-#{micropost.id}") %>
+	    						<i class="icon-heart"></i> 
+						    <%end%>
+						    <%= content_tag(:span, micropost.flaggings.count, 
+						    							class: "like-#{micropost.id}") %>
+						</p>
+
+					</div>
+				</div>	
+			</div>
+    <div class="close">x</div>           	         				
+</li>
+<% end %>

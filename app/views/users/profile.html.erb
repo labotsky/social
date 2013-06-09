@@ -106,47 +106,10 @@
     </div> 
     <div class="span7">	
      	<div class="post">
-     		<ul>
-     			<li>
-					<div class="row">
-						<div class="span2">
-     					<%= image_tag current_user.image_url(:profile), class: "avatar_small" %>
-     					</div>
-     					<div class="span5">
-     						<div class="row">
-     							<p class="username">
-     								<%= current_user.name %> <%= current_user.surname %> -
-     								<span class="dateuser">около минуты назад</span>
-     							</p>         						
-     							<p class="message">Messageаываываываываыва
-                    ыв
-                    аыв
-                    аываыва</p>         						
-     							<p class="dateuser">Мне нравится</p>	
-     						</div>
-     					</div>	
-     				</div>
-            <div class="close">x</div>	         				
-     			</li>
-     			<li>
-					<div class="row">
-						<div class="span2">
-     					<%= image_tag current_user.image_url(:profile), class: "avatar_small" %>
-     					</div>
-     					<div class="span5">
-     						<div class="row">
-     							<p class="username">
-     								<%= current_user.name %> <%= current_user.surname %> -
-     								<span class="dateuser">около минуты назад</span>
-     							</p>         						
-     							<p class="message">Message</p>
-                  <a href="#" class="dateuser">Мне нравится</a>  
-     							<p class="date_like"><i class="icon-heart"></i><span>1</span></p>	
-     						</div>
-     					</div>	
-     				</div>
-            <div class="close">x</div>           	         				
-     			</li>
+     		<ul>    		
+     			 <% if current_user.microposts.any? %>    
+              <%= render 'microposts/micropost' %>    
+           <% end %>
      		</ul>
      	</div>	         	
 	</div>

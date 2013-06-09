@@ -52,5 +52,22 @@ describe "User Pages" do
 				should have_content('Приветствуем вас')
 			end			
 		end
+
+		describe "profile page" do
+			let(:user){FactoryGirl.create(:user)}
+			let!(:m1){FactoryGirl.create(:micropost, user: user, content:'Foo')}
+			let!(:m2){FactoryGirl.create(:micropost, user: user, content:'Bar')}
+			before do
+			visit root_path
+			fill_in "session_email", with: user.email.upcase
+			fill_in "session_password", with: user.password
+			click_button "Войти"
+			click_link "Пустите меня в Дестини!"
+			end
+			describe 'micropost' do
+				it{should have_content(m1.content)}
+				it{should have_content(m1.content)}
+			end
+		end
 	end	
 end

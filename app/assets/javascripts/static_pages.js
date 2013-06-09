@@ -1,6 +1,15 @@
 $(document).ready(function() {
   showFlashMessages();
   $('.dropdown-toggle').dropdown();
+
+  $("a.fancybox").fancybox({
+    'transitionIn'  : 'elastic',
+    'transitionOut' : 'elastic',
+    'speedIn'   : 600, 
+    'speedOut'    : 200, 
+    'overlayShow' : false
+});
+  
 });
 
 
@@ -28,14 +37,6 @@ $('.post li').hover(
   },
   function () {
     $(this).find('.close').fadeOut(100);
-});
-
-$("a.fancybox").fancybox({
-		'transitionIn'	:	'elastic',
-		'transitionOut'	:	'elastic',
-		'speedIn'		:	600, 
-		'speedOut'		:	200, 
-		'overlayShow'	:	false
 });
 
 }

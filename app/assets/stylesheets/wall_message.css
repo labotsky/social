@@ -1,6 +1,6 @@
 .icon-heart{
 	margin-top: 2px;
-	margin-right: 2px;
+	margin-right: 0px;
 }
 .date_like span{
 	color: #000;
@@ -11,4 +11,9 @@
 	position: absolute;
 	bottom:5px;
 	right: 15px;
+}
+
+.date_like a{
+	font-size:11px;
+	color: rgb(153, 153, 153);
 }

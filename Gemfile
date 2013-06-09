@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+  gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -27,18 +27,19 @@ group :development, :test do
   gem 'factory_girl_rails'
 end
 
-gem 'jquery-rails'
-gem 'pg'
-gem 'bootstrap-sass'
-gem 'bootstrap-tour-rails'
-gem 'haml'
-gem 'simple_form'
-gem 'country_select'
-gem 'carrierwave'
-gem 'rmagick'
-gem 'fancybox-rails'
+  gem 'jquery-rails'
+  gem 'pg'
+  gem 'bootstrap-sass'
+  gem 'bootstrap-tour-rails'
+  gem 'haml'
+  gem 'simple_form'
+  gem 'country_select'
+  gem 'carrierwave'
+  gem 'rmagick'
+  gem 'fancybox-rails'
+  gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git'
 # To use ActiveModel has_secure_password
- gem 'bcrypt-ruby', '~> 3.0.0'
+  gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
