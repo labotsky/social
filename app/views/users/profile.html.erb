@@ -6,7 +6,7 @@
       <p class="user_mind">Я хочу сказать, что...</p>  
 			<ul class="thumbnails">
 	    		<li class="span4">
-            <%= link_to current_user.image_url, class: 'fancybox' do %>   
+            <%= link_to current_user.image_url(:gallery), class: 'fancybox' do %>   
 	    			  <%= image_tag current_user.image_url(:register), class: "avatar" %>
             <% end %>
 	    			<p class="info_about">
@@ -97,13 +97,9 @@
           </div>	
     	</div><!--/span-->			
 
-	<div class="span7">	         	
-             	
-     	<textarea id="status_message_fake_text" tabindex="1" rows="2" placeholder="Начать беседу..."
-     	cols="40" data-mentions-input="true" style=""></textarea>     
-     	<button class="btn btn-mini pull-right btnarea" type="button">Отправить</button>
-     	<button class="btn btn-mini btn-primary pull-right btnarea" type="button">Preview</button>
-    </div> 
+  	<div class="span7" style="position: relative;">
+      <%= render 'microposts/form', micropost: @micropost %>
+    </div>
     <div class="span7">	
      	<div class="post">
      		<ul>    		

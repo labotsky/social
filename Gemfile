@@ -38,6 +38,7 @@ end
   gem 'rmagick'
   gem 'fancybox-rails'
   gem 'make_flaggable', :git => 'git://github.com/cavneb/make_flaggable.git'
+  gem 'ffaker'
 # To use ActiveModel has_secure_password
   gem 'bcrypt-ruby', '~> 3.0.0'
 

@@ -1,0 +1,27 @@
+<div id="myModal-<%=micropost.id%>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">Кому нравится?</h3>
+	</div>
+	<div class="modal-body">
+		<ul>
+			<% micropost.flaggings.each do |flag| %>
+				<li style="float:left; width:90px; margin:-10px; border:none;">					
+						<% @user = User.find_by_id(flag.flagger_id) %>
+						<div class="people_like_photo">		
+							<%=link_to @user do %>
+								<%= image_tag @user.image_url(:profile), class: 'avatar_small' %>
+							<% end %>			
+							<p style="line-height:13px;">
+								<%= @user.surname %>
+								<%= @user.name %>
+							</p>								
+						</div>				
+				</li>
+			<%end%>	
+		</ul>	
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">Закрыть</button>		
+	</div>
+</div>    

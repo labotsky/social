@@ -1,5 +1,5 @@
-<% @microposts.each do |micropost|%>
-<li class="post-<%=micropost.id%>">
+<% micropost = current_user.microposts.first %>
+<li class="post-<%=micropost.id%> lastposts">
 	<div class="row">
 		<div class="span2">
 			<%= image_tag current_user.image_url(:profile), class: "avatar_small" %>
@@ -27,8 +27,8 @@
 					    							class: "like-#{micropost.id}") %>
 					</p>											
 					<div class="people-<%=micropost.id%>">
-						<%= render 'microposts/likepeople', micropost: micropost %>
-					</div> 												
+							<%= render 'microposts/likepeople', micropost: micropost %>
+						</div> 												
 				</div>
 			</div>	
 	</div>
@@ -36,4 +36,4 @@
     	<%= link_to "x", micropost, method: :delete, remote: true%>
     </div>           	         				
 </li>
-<% end %>
+

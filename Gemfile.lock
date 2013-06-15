@@ -74,6 +74,7 @@ GEM
       railties (>= 3.0.0)
     fancybox-rails (0.2.1)
       railties (>= 3.1.0)
+    ffaker (1.16.1)
     ffi (1.6.0)
     haml (4.0.2)
       tilt
@@ -178,6 +179,7 @@ DEPENDENCIES
   country_select
   factory_girl_rails
   fancybox-rails
+  ffaker
   haml
   jquery-fileupload-rails
   jquery-rails

@@ -23,6 +23,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   version :profile do
     process resize_to_fill: [50, 50]
   end
+
+
+  version :gallery do
+    process resize_to_limit: [500, 500]
+  end
  
    def extension_white_list
      %w(jpg jpeg png)

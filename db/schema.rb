@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130609105113) do
+ActiveRecord::Schema.define(:version => 20130610174853) do
 
   create_table "flaggings", :force => true do |t|
     t.string   "flaggable_type"
@@ -29,10 +29,10 @@ ActiveRecord::Schema.define(:version => 20130609105113) do
   add_index "flaggings", ["flagger_type", "flagger_id", "flaggable_type", "flaggable_id"], :name => "access_flaggings"
 
   create_table "microposts", :force => true do |t|
-    t.string   "content"
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.text     "content"
   end
 
   add_index "microposts", ["user_id", "created_at"], :name => "index_microposts_on_user_id_and_created_at"

@@ -8,8 +8,7 @@ $(document).ready(function() {
     'speedIn'   : 600, 
     'speedOut'    : 200, 
     'overlayShow' : false
-});
-  
+  });  
 });
 
 
@@ -23,20 +22,13 @@ function showFlashMessages() {
 $('#status_message_fake_text').focus(function(){
    $(this).attr('rows', '4');
    $('.btnarea').show();
+   $('.close_window').show();
 });
 
-$('#status_message_fake_text').focusout(function(){
-   $(this).attr('rows', '2');
+$('.close_window').click(function(){
+   $('#status_message_fake_text').attr('rows', '2');
    $('.btnarea').hide();
-});
-
-
-$('.post li').hover(
-  function () {
-    $(this).find('.close').fadeIn(100);
-  },
-  function () {
-    $(this).find('.close').fadeOut(100);
+   $('.close_window').hide();
 });
 
 }
