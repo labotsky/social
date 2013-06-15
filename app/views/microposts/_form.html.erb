@@ -1,7 +1,18 @@
-<%= simple_form_for @micropost, remote: true do |f| %>
+<%= simple_form_for Micropost.new, remote: true do |f| %>
   <%= f.input :content, as: :text, input_html:{id: 'status_message_fake_text', rows: 2, 
   	placeholder: "Начать беседу...", tabindex: 1, cols: 40} %>
   <%= f.button :button, "Отправить", class: 'btn btn-mini pull-right btnarea', remote: true %>
 <% end %>
 <div class="close_window" style="position: absolute; top:5px; right:8px; display:none;">
 										<a href="javascript:void(0)">x</a></div>
+
+<div class="image_upload" style="position: absolute; bottom:50px; right:5px; overflow:hidden;">
+	<i class="icon-camera">
+	<%= form_for current_user, :html => { :multipart => true, :id => "fileuploadpost"  } do |f| %>
+      <div class="fileupload-buttonbar">
+        <span class="btn.fileinput-button.button-avatar">           
+          <%= f.file_field :image, name: "micropost[image]" %>
+      </div>    
+    <% end %>          
+	</i>
+</div>										
