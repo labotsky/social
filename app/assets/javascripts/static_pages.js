@@ -23,12 +23,14 @@ $('#status_message_fake_text').focus(function(){
    $(this).attr('rows', '4');
    $('.btnarea').show();
    $('.close_window').show();
+ 
 });
 
 $('.close_window').click(function(){
    $('#status_message_fake_text').attr('rows', '2');
    $('.btnarea').hide();
    $('.close_window').hide();
+  
 });
 
 }
