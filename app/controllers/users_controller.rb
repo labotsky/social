@@ -38,8 +38,9 @@ class UsersController < ApplicationController
      end   
   end
 
-  def profile   
+  def profile         
     @microposts = current_user.microposts.includes(:flaggings)
+   
     unless signed_in?
       redirect_to root_url
      end    

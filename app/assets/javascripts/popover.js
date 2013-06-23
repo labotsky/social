@@ -1,4 +1,14 @@
 $(document).ready(function() {
+	$('textarea').flexible();
+  $('textarea').trigger('updateHeight');
+  $('textarea').val('');
+  $("a.fancybox").fancybox({
+  'transitionIn'  : 'elastic',
+  'transitionOut' : 'elastic',
+  'speedIn'   : 600, 
+  'speedOut'    : 200, 
+  'overlayShow' : false
+  });
 	var tour = new Tour();
 	tour.addStep({		
 	    element: ".fileinput-button", // string (jQuery selector) - html element next to which the step popover should be shown
@@ -75,20 +85,9 @@ $(document).ready(function() {
           }
   });
 
-
-  showFlashMessages();
-  $('.dropdown-toggle').dropdown();
-
-  $("a.fancybox").fancybox({
-    'transitionIn'  : 'elastic',
-    'transitionOut' : 'elastic',
-    'speedIn'   : 600, 
-    'speedOut'    : 200, 
-    'overlayShow' : false
-  });  
-
-
-
+	showFlashMessages();
+	$('.dropdown-toggle').dropdown();
+	
 	function showFlashMessages() {
 		  $('.message_notice').animate({top: '40px'}, 500, function(){
 		    setTimeout(function() {
@@ -96,21 +95,35 @@ $(document).ready(function() {
 		  }, 5000);
 		});
 	}
-
-	$('#status_message_fake_text').focus(function(){
-	   $(this).attr('rows', '4');
-	   $('.btnarea').show();
-	   $('.close_window').show();
-	   $('.image_upload').show();	 
-	});
-
-	$('.close_window').click(function(){
-	   $('#status_message_fake_text').attr('rows', '2');
-	   $('.btnarea').hide();
-	   $('.close_window').hide();
-	   $('.image_upload').hide();
-	});
 	
+
+	$('#new_imagepost').fileupload({
+	
+      add: function (e,data){
+        types = /(\.|\/)(gif|jpe?g|png)$/i
+        file = data.files[0];
+        if (!types.test(file.type) || !types.test(file.name))
+          show_flash('notice', 'Ошибка! Допустимые форматы изображения: jpg, jpeg, png.');       
+          data.submit();        
+        },
+      progress: function (e, data) {
+        $('.progress').fadeIn(100);
+          var progress = parseInt(data.loaded / data.total * 100, 10);
+          $('.progress .bar').css(
+              'width',
+              progress + '%'
+          );
+      },
+      done: function(e, data) {
+        $('.progress').fadeOut(100);       
+      }
+  });
+
+
+
+	 document.getElementById('imagepost_image').addEventListener('change', handleFileSelect, false);
+
+
 });
 
 

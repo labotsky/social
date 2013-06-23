@@ -7,7 +7,7 @@
 		<ul>
 			<% micropost.flaggings.each do |flag| %>
 				<li style="float:left; width:140px; margin:-10px; border:none;">					
-						<% @user = User.find_by_id(flag.flagger_id) %>
+						<% @user = User.find(flag.flagger_id) %>
 						<div class="people_like_photo">		
 							<%=link_to @user do %>
 								<%= image_tag @user.image_url(:register) %>
