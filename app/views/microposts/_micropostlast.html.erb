@@ -13,15 +13,24 @@
 						</span>
 					</p>         						
 					<p class="message"><%=micropost.content %></p>
-					<% unless Imagepost.where({micropost_id: micropost.id}).last == nil %>				
-						<p>
-							<%= link_to Imagepost.where({micropost_id: micropost.id}).last.
-														image_url(:upload), class: 'fancybox' do %>   
-	    			  			<%= image_tag Imagepost.where({micropost_id: micropost.id}).last.
-	    			  									image_url(:gallery) %>
-           					 <% end %>
-						</p>
-					<% end %>	
+					<% imageposts = Imagepost.where({micropost_id: micropost.id}) %>
+					<% unless imageposts.last == nil %>
+						<% imageposts.each_with_index do |imagepost, i| %>
+							<% if i==0 %>								
+								<p>
+									<%= link_to imagepost.image_url(:upload), class: 'fancybox' do %>		
+			    			  				<%= image_tag imagepost.image_url(:gallery) %>		
+		           					 <% end %>
+								</p>
+							<% else %>
+								<p style="float:left;margin:1px;">
+									<%= link_to imagepost.image_url(:upload), class: 'fancybox' do %>	
+											<%= image_tag imagepost.image_url(:small) %>					
+		           					 <% end %>
+								</p>
+							<% end %>
+						<% end %>	
+					<% end %>
 					<p class="date_like date-like-<%=micropost.id%>">
 						<%if @current_user.present?%>					
 							<%= content_tag(:span, toggle_like_button(micropost, @current_user), 

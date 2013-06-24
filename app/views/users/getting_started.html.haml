@@ -11,7 +11,7 @@
     .progress.progress-striped.active
       .bar{:style => "width: 0%; height:10px; border-radius"}
     .img_ava  
-      = image_tag current_user.image_url(:register), :class => 'avatar'   
+      = image_tag current_user.image_url(:register), :class => 'avatar_register'   
     = form_for current_user, :html => { :multipart => true, :id => "fileupload"  } do |f|
       .fileupload-buttonbar
         %span.btn.fileinput-button.button-avatar

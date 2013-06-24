@@ -11,7 +11,7 @@
 	<i class="icon-camera">	
       <div class="fileupload-buttonbar">
         <span class="btn.fileinput-button.button-avatar">           
-          <%= f.input :image, as: :file, label: false %>
+          <%= f.input :image, as: :file, label: false, input_html:{multiple: true} %>
           <%= f.input :remember_token, as: :hidden,  input_html:{value: current_user.remember_token} %>
         </span>  
       </div>    

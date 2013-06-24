@@ -4,11 +4,13 @@
 <div class="row wrapp_profile">			
 		<div class="span5 left_block">
       <p class="user_mind">Я хочу сказать, что...</p>  
-			<ul class="thumbnails">
+			<ul class="thumbnails">         
 	    		<li class="span4">
-            <%= link_to current_user.image_url(:gallery), class: 'fancybox' do %>   
-	    			  <%= image_tag current_user.image_url(:register), class: "avatar" %>
-            <% end %>
+            <div id="user-photo">
+              <%= link_to current_user.image_url(:gallery), class: 'fancybox' do %>   
+  	    			  <%= image_tag current_user.image_url(:avatar), class: "avatar" %>
+              <% end %>
+            </div>
 	    			<p class="info_about">
 	    			<strong>
 	    				<%= current_user.name %> 

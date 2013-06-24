@@ -109,12 +109,20 @@
 }
 
 #list{
-	position: absolute;
-	bottom: 45px;
-	left: 3px;
+	position: fixed;
+	width: 223px;
+	right: 3px;
+	top: 38px;
 }
 
 #status_message_fake_text{
 	padding-bottom:50px;
 }  
 
+#user-photo{   
+    padding: 10px 11px;
+    width: 138px;
+    height: 147px;
+    background: url("user-picture-bg.png") no-repeat scroll center center transparent;
+    float:left;
+}

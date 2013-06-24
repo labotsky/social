@@ -4,7 +4,7 @@
 		<h3 id="myModalLabel">Кому нравится?</h3>
 	</div>
 	<div class="modal-body">
-		<ul>
+		<ul>			
 			<% micropost.flaggings.each do |flag| %>
 				<li style="float:left; width:140px; margin:-10px; border:none;">					
 						<% @user = User.find(flag.flagger_id) %>

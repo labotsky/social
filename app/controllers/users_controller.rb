@@ -40,7 +40,8 @@ class UsersController < ApplicationController
 
   def profile         
     @microposts = current_user.microposts.includes(:flaggings)
-   
+    imagepost = Imagepost.where({micropost_id: nil, remember_token: current_user.remember_token})
+    imagepost.each{|i| i.destroy}  
     unless signed_in?
       redirect_to root_url
      end    

@@ -5,8 +5,8 @@ class MicropostsController < ApplicationController
     @micropost.user_id= current_user.id       
     respond_to do |format|
       if @micropost.save
-        @imagepost = Imagepost.where({micropost_id: nil, remember_token: current_user.remember_token}).last
-        @imagepost.update_attribute(:micropost_id, @micropost.id)       
+        @imagepost = Imagepost.where({micropost_id: nil, remember_token: current_user.remember_token})
+        @imagepost.each{|i| i.update_attribute(:micropost_id, @micropost.id)}      
         format.js
       end        
     end    

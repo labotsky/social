@@ -2,13 +2,18 @@ $(document).ready(function() {
 	$('textarea').flexible();
   $('textarea').trigger('updateHeight');
   $('textarea').val('');
-  $("a.fancybox").fancybox({
-  'transitionIn'  : 'elastic',
-  'transitionOut' : 'elastic',
-  'speedIn'   : 600, 
-  'speedOut'    : 200, 
-  'overlayShow' : false
-  });
+$(".fancybox").fancybox({
+    helpers:  {
+        title : {
+            type : 'inside'
+        },
+        overlay : {
+            css : {
+                'background' : '#000'               
+            }
+        }
+    }
+});
 	var tour = new Tour();
 	tour.addStep({		
 	    element: ".fileinput-button", // string (jQuery selector) - html element next to which the step popover should be shown
@@ -119,11 +124,8 @@ $(document).ready(function() {
       }
   });
 
-
-
+  $('#imagepost_image').attr('name','imagepost[image]');
 	 document.getElementById('imagepost_image').addEventListener('change', handleFileSelect, false);
-
-
 });
 
 
