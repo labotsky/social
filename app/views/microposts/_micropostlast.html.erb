@@ -17,14 +17,16 @@
 					<% unless imageposts.last == nil %>
 						<% imageposts.each_with_index do |imagepost, i| %>
 							<% if i==0 %>								
-								<p>
-									<%= link_to imagepost.image_url(:upload), class: 'fancybox' do %>		
+								<p style="float:left;margin:1px;">
+									<%= link_to imagepost.image_url(:upload), class: 'fancybox',
+																				rel:"gallery" do %>		
 			    			  				<%= image_tag imagepost.image_url(:gallery) %>		
 		           					 <% end %>
 								</p>
 							<% else %>
 								<p style="float:left;margin:1px;">
-									<%= link_to imagepost.image_url(:upload), class: 'fancybox' do %>	
+									<%= link_to imagepost.image_url(:upload), class: 'fancybox',
+																				rel:"gallery" do %>	
 											<%= image_tag imagepost.image_url(:small) %>					
 		           					 <% end %>
 								</p>

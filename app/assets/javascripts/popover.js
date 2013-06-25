@@ -9,7 +9,7 @@ $(".fancybox").fancybox({
         },
         overlay : {
             css : {
-                'background' : '#000'               
+                'background' : '#000'          
             }
         }
     }
@@ -123,9 +123,8 @@ $(".fancybox").fancybox({
         $('.progress').fadeOut(100);       
       }
   });
-
   $('#imagepost_image').attr('name','imagepost[image]');
-	 document.getElementById('imagepost_image').addEventListener('change', handleFileSelect, false);
+	document.getElementById('imagepost_image').addEventListener('change', handleFileSelect, false);
 });
 
 

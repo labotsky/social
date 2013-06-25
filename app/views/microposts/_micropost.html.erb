@@ -20,16 +20,16 @@
 								<p style="float:left;margin:1px;">
 									<%= link_to imagepost.image_url(:upload), class: 'fancybox',
 																				rel:"gallery" do %>		
-			    			  				<%= image_tag imagepost.image_url(:gallery) %>		
+			    			  				<%= image_tag imagepost.image_url(:gallery), class: 'shadow' %>	
 		           					 <% end %>
 								</p>
 							<% else %>
-								
+								<p style="float:left;margin:1px;">
 									<%= link_to imagepost.image_url(:upload), class: 'fancybox',
 																				rel:"gallery" do %>	
-											<%= image_tag imagepost.image_url(:small) %>					
+											<%= image_tag imagepost.image_url(:small), class: 'shadow' %>
 		           					 <% end %>
-								
+								</p>
 							<% end %>
 						<% end %>	
 					<% end %>							
@@ -53,7 +53,7 @@
 			</div>	
 	</div>
     <div class="close">
-    	<%= link_to "x", micropost, method: :delete, remote: true%>
+    	<%= link_to "x", micropost, method: :delete, remote: true, confirm: "Вы уверены?" %>
     </div>           	         				
 </li>
 <% end %>

@@ -2,13 +2,19 @@ class MicropostsController < ApplicationController
 
   def create
     @micropost = Micropost.new(params[:micropost])
-    @micropost.user_id= current_user.id       
+    @micropost.user_id= current_user.id
+    imagepost = Imagepost.where({micropost_id: nil, remember_token: current_user.remember_token})       
     respond_to do |format|
-      if @micropost.save
-        @imagepost = Imagepost.where({micropost_id: nil, remember_token: current_user.remember_token})
-        @imagepost.each{|i| i.update_attribute(:micropost_id, @micropost.id)}      
-        format.js
-      end        
+      if imagepost.empty?
+        if @micropost.save 
+          imagepost.each{|i| i.update_attribute(:micropost_id, @micropost.id)}      
+          format.js
+        end   
+      else
+        @micropost.save(validate: false)
+        imagepost.each{|i| i.update_attribute(:micropost_id, @micropost.id)}      
+        format.js 
+      end             
     end    
   end
 

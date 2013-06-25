@@ -116,7 +116,7 @@
 }
 
 #status_message_fake_text{
-	padding-bottom:50px;
+	
 }  
 
 #user-photo{   
@@ -125,4 +125,12 @@
     height: 147px;
     background: url("user-picture-bg.png") no-repeat scroll center center transparent;
     float:left;
+}
+
+.shadow{
+	transition: 0.5s all ease-in-out;
+}
+
+.shadow:hover{	
+	opacity: .7;
 }
