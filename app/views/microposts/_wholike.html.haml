@@ -1,0 +1,7 @@
+- if current_user.present?
+  = content_tag(:span, toggle_like_button(title, micropost, @current_user), |
+    class: "like_button-#{micropost.id}")                                   |
+  - if !micropost.flaggings.empty?
+    %a{"data-toggle" => "modal", :href => "#myModal-#{micropost.id}", :role => "button"} Кому?
+  %i.icon-heart
+= content_tag(:span, micropost.flaggings.count,class: "like-#{micropost.id}")

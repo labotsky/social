@@ -3,7 +3,8 @@ namespace :db do
 	task populate: :environment do
 		make_admin
 		make_users		
-		make_microposts		
+		make_microposts
+		make_comments		
 	end	
 end
 	
@@ -34,6 +35,15 @@ end
 			date = '1993-05-05'			
 			User.create(name: name, surname: surname, email: email, country: country, sity: sity,
 				password: password, password_confirmation: password_confirmation, date: date)
+		end	
+	end
+
+	def make_comments
+		200.times do |n|
+			print '.'
+			content = Faker::Lorem.paragraph
+			micropost_id = 1 + Random.rand(30)
+			Comment.create(content: content, micropost_id: micropost_id)
 		end	
 	end
 	

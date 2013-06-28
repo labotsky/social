@@ -1,0 +1,22 @@
+- comment = micropost.comments.last
+%li{:class => "post-#{comment.id}"}
+  .row
+    .span_photo_comment
+      = image_tag current_user.image_url(:profile), class: "avatar_comment"
+    .span_text_comment
+      .row
+        %p.username
+          = current_user.name
+          = current_user.surname
+          \-
+          %span.dateuser
+            = time_ago_in_words comment.created_at
+            назад.
+            (#{comment.created_at.strftime("%d/%m/%y в %H:%M")}).
+        %p.message= comment.content
+        %p{:class => "date_like date-like-#{comment.id}"}
+          = render 'microposts/wholike', micropost: comment, title: 'comment'
+        %div{:class => "people-#{comment.id}"}
+          = render 'microposts/likepeople', micropost: comment
+  .close
+    = link_to "x", comment, method: :delete, remote: true, confirm: "Вы уверены?"

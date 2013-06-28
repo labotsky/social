@@ -13,4 +13,5 @@
         = content_tag :div, :class => "message_#{key}" do       
           = content_tag(:div, value, class: "alert_message")                                         
     #container      
-      = yield      
+      = yield
+      = image_tag 'preloader.gif', class: 'preloader'      

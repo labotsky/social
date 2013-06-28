@@ -125,6 +125,31 @@ $(".fancybox").fancybox({
   });
   $('#imagepost_image').attr('name','imagepost[image]');
 	document.getElementById('imagepost_image').addEventListener('change', handleFileSelect, false);
+
+  $('.post li').not('.head-post').mouseover(function(){
+    $(this).find('.date_like span:nth-child(1)').show();
+    $(this).find('.close').show();
+  });
+  $('.post li').not('.head-post').mouseout(function(){
+    $(this).find('.date_like span:nth-child(1)').hide();
+    $(this).find('.close').hide();
+  });
+
+  $('.head-post').mouseover(function(){
+    $(this).find('.close').show();
+  });
+  $('.head-post').mouseout(function(){
+    $(this).find('.close').hide();
+  });
+
+  $(document).ajaxStart(function(){
+    $(".preloader").fadeIn(200);
+  });
+
+  $(document).ajaxStop(function(){
+    $(".preloader").fadeOut(200);
+  });
+
 });
 
 

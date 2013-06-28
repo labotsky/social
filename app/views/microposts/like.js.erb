@@ -1,4 +1,4 @@
-$(".like-<%=@micropost.id%>").html("<%= j render('like') %>");
-$(".like_button-<%=@micropost.id%>").html("<%= j render('likebutton') %>");
+$(".like-<%=@micropost.id%>").html("<%= j render('like', micropost: @micropost) %>");
+$(".like_button-<%=@micropost.id%>").html("<%= j render('likebutton', micropost: @micropost, title: 'micropost') %>");
 $(".people-<%=@micropost.id%>").html("<%= j render('likepeople', micropost: @micropost) %>");
-$(".date-like-<%=@micropost.id%>").html("<%= j render('wholike', micropost: @micropost) %>");
+$(".date-like-<%=@micropost.id%>").html("<%= j render('wholike', micropost: @micropost, title: 'micropost') %>");

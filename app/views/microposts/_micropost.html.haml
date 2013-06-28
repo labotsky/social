@@ -1,0 +1,57 @@
+- @microposts.each do |micropost|
+  %li{:class => "head-post post-#{micropost.id}"}
+    .row
+      .span2
+        = image_tag current_user.image_url(:profile), class: "avatar_small"
+      .span5
+        .row
+          %p.username
+            = current_user.name
+            = current_user.surname
+            \-
+            %span.dateuser
+              = time_ago_in_words micropost.created_at
+              назад.
+              (#{micropost.created_at.strftime("%d/%m/%y в %H:%M")}).
+          %p.message= micropost.content
+          - imageposts = imageall(micropost.id)
+          - unless imageposts.last == nil
+            - imageposts.each_with_index do |imagepost, i|
+              - if i==0
+                = render 'microposts/imagepost', type: :gallery, imagepost: imagepost
+              - else
+                = render 'microposts/imagepost', type: :small, imagepost: imagepost
+          %p{:class => "date_like date-like-#{micropost.id}"}
+            = render 'microposts/wholike', micropost: micropost, title: 'micropost'
+          %div{:class => "people-#{micropost.id}"}
+            = render 'microposts/likepeople', micropost: micropost
+    .close
+      = link_to "x", micropost, method: :delete, remote: true, confirm: "Вы уверены?"
+  %ul{:class => "comment comment-in-#{micropost.id}"}
+    - micropost.comments.each do |comment|
+      %li{:class => "post-comment-#{comment.id}"}
+        .row
+          .span_photo_comment
+            = image_tag current_user.image_url(:profile), class: "avatar_comment"
+          .span_text_comment
+            .row
+              %p.username
+                = current_user.name
+                = current_user.surname
+                \-
+                %span.dateuser
+                  = time_ago_in_words comment.created_at
+                  назад.
+                  (#{comment.created_at.strftime("%d/%m/%y в %H:%M")}).
+              %p.message= comment.content
+              %p{:class => "date_like date-like-#{comment.id}"}
+                = render 'microposts/wholike', micropost: comment, title: 'comment'
+              %div{:class => "people-#{comment.id}"}
+                = render 'microposts/likepeople', micropost: comment
+        .close
+          = link_to "x", comment, method: :delete, remote: true, confirm: "Вы уверены?"
+  .row{:class => "commentForm-#{micropost.id}"}
+    .wrapper
+      %li{:class => 'commentForm', :style => "margin-left:-55px"}
+        = render 'comments/form', micropost: micropost
+  %div{:style => "clear:both"}

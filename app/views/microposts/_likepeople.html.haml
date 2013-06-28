@@ -1,0 +1,18 @@
+.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :id => "myModal-#{micropost.id}", :role => "dialog", :tabindex => "-1"}
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+    %h3#myModalLabel Кому нравится?
+  .modal-body
+    %ul
+      - users_ids = micropost.flaggings.map{|m| m.flagger_id}
+      - users = User.find(users_ids)
+      - users.each do |user|
+        %li{:style => "float:left; width:140px; margin:-10px; border:none;"}
+          .people_like_photo
+            = link_to user do
+              = image_tag user.image_url(:register)
+            %p{:style => "line-height:13px;"}
+              = user.surname
+              = user.name
+  .modal-footer
+    %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Закрыть

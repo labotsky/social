@@ -1,0 +1,20 @@
+<%= simple_form_for Comment.new, remote: true do |f| %>
+  <%= f.input :content, as: :text, input_html:{class: 'status_message_fake_comment', rows: 1,
+   placeholder: "Добавить комментарий...", tabindex: 1, cols: 40} %>
+  <%= f.input :micropost_id, as: :hidden,  input_html:{value: micropost.id} %>
+  <%= f.button :button, "Отправить", class: 'btn btn-mini pull-right btnarea', remote: true %>
+<% end %>
+
+
+<%= simple_form_for Imagepost.new, :html => {:multipart => true, remote: true} do |f| %>  
+<div class="image_upload_comment">
+	<i class="icon-camera">	
+      <div class="fileupload-buttonbar">
+        <span class="btn.fileinput-button.button-avatar">           
+          <%= f.input :image, as: :file, label: false, input_html:{multiple: true} %>
+          <%= f.input :remember_token, as: :hidden,  input_html:{value: current_user.remember_token} %>
+        </span>  
+      </div>    
+	</i>
+</div>
+<% end %>						

@@ -1,5 +1,4 @@
-$(".post .head").prepend("<%= j render('micropostlast') %>");
-$(".lastposts").fadeIn(1000);
+$(".comment-in-<%=@micropost.id%>").append("<%= j render('commentlast', micropost: @micropost) %>");
 
 $("a.fancybox").fancybox({
   'transitionIn'  : 'elastic',
@@ -7,24 +6,21 @@ $("a.fancybox").fancybox({
   'speedIn'   : 600, 
   'speedOut'    : 200, 
   'overlayShow' : false
- });
-
-$('#status_message_fake_text').val('');
+  });
+$('textarea').val('');
 $('#list').html('');
-
 $('.post li').not('.head-post').mouseover(function(){
-	$(this).find('.date_like').show();
-	$(this).find('.close').show();
+$(this).find('.date_like').show();
+$(this).find('.close').show();
 });
-
 $('.post li').not('.head-post').mouseout(function(){
-	$(this).find('.date_like').hide();
-	$(this).find('.close').hide();
+$(this).find('.date_like').hide();
+$(this).find('.close').hide();
 });
 
 $('.head-post').mouseover(function(){
-	$(this).find('.close').show();
+$(this).find('.close').show();
 });
 $('.head-post').mouseout(function(){
-	$(this).find('.close').hide();
+$(this).find('.close').hide();
 });

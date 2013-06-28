@@ -10,6 +10,9 @@ Social::Application.routes.draw do
     get 'like', :on => :member   
   end
   resources :imageposts
+  resources :comments do
+    get 'like', :on => :member
+  end  
   match "getting_started" => "users#getting_started"
   match "profile" => "users#profile"
   resources :sessions, only: [:new, :create, :destroy]

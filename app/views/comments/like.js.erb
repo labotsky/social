@@ -1,0 +1,4 @@
+$(".like-<%=@comment.id%>").html("<%= j render('microposts/like', micropost: @comment) %>");
+$(".like_button-<%=@comment.id%>").html("<%= j render('microposts/likebutton', micropost: @comment, title: 'comment') %>");
+$(".people-<%=@comment.id%>").html("<%= j render('microposts/likepeople', micropost: @comment) %>");
+$(".date-like-<%=@comment.id%>").html("<%= j render('microposts/wholike', micropost: @comment, title: 'comment') %>");

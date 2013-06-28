@@ -2,7 +2,7 @@ class MicropostsController < ApplicationController
 
   def create
     @micropost = Micropost.new(params[:micropost])
-    @micropost.user_id= current_user.id
+    @micropost = current_user.microposts.build(params[:micropost])   
     imagepost = Imagepost.where({micropost_id: nil, remember_token: current_user.remember_token})       
     respond_to do |format|
       if imagepost.empty?
@@ -18,13 +18,12 @@ class MicropostsController < ApplicationController
     end    
   end
 
-  def like
-  	@current_user = current_user
+  def like  	
   	@micropost = Micropost.find(params[:id])
-  	if @current_user.flagged?(@micropost,:like)
-  		@current_user.unflag(@micropost,:like)
+  	if current_user.flagged?(@micropost,:like)
+  		current_user.unflag(@micropost,:like)
   	else
-  		@current_user.flag(@micropost,:like)
+  		current_user.flag(@micropost,:like)
   	end
   	respond_to do |format|
   		format.js
