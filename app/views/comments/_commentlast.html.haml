@@ -1,5 +1,5 @@
 - comment = micropost.comments.last
-%li{:class => "post-#{comment.id}"}
+%li{:class => "post-comment-#{comment.id}"}
   .row
     .span_photo_comment
       = image_tag current_user.image_url(:profile), class: "avatar_comment"

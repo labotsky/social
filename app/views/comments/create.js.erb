@@ -10,17 +10,17 @@ $("a.fancybox").fancybox({
 $('textarea').val('');
 $('#list').html('');
 $('.post li').not('.head-post').mouseover(function(){
-$(this).find('.date_like').show();
-$(this).find('.close').show();
+	$(this).find('.date_like span:nth-child(1)').show();
+	$(this).find('.close').show();
 });
 $('.post li').not('.head-post').mouseout(function(){
-$(this).find('.date_like').hide();
-$(this).find('.close').hide();
+	$(this).find('.date_like span:nth-child(1)').hide();
+	$(this).find('.close').hide();
 });
 
 $('.head-post').mouseover(function(){
-$(this).find('.close').show();
+	$(this).find('.close').show();
 });
 $('.head-post').mouseout(function(){
-$(this).find('.close').hide();
+	$(this).find('.close').hide();
 });
