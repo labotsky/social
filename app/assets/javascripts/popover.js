@@ -102,29 +102,25 @@ $(".fancybox").fancybox({
 	}
 	
 
-	$('#new_imagepost').fileupload({
+	$('.new_imagepost').fileupload({
 	
       add: function (e,data){
-        types = /(\.|\/)(gif|jpe?g|png)$/i
-        file = data.files[0];
-        if (!types.test(file.type) || !types.test(file.name))
+          types = /(\.|\/)(gif|jpe?g|png)$/i
+          file = data.files[0];
+          if (!types.test(file.type) || !types.test(file.name))
           show_flash('notice', 'Ошибка! Допустимые форматы изображения: jpg, jpeg, png.');       
           data.submit();        
         },
       progress: function (e, data) {
-        $('.progress').fadeIn(100);
+        $('.progress_bottom').fadeIn(100);
           var progress = parseInt(data.loaded / data.total * 100, 10);
-          $('.progress .bar').css(
-              'width',
-              progress + '%'
-          );
+          $('.progress_bottom').html(progress + '%');
       },
       done: function(e, data) {
-        $('.progress').fadeOut(100);       
+        $('.progress_bottom').fadeOut(100);       
       }
   });
-  $('#imagepost_image').attr('name','imagepost[image]');
-	document.getElementById('imagepost_image').addEventListener('change', handleFileSelect, false);
+  $('.imagepost_image_form').attr('name','imagepost[image]');
 
   $('.post li').not('.head-post').mouseover(function(){
     $(this).find('.date_like span:nth-child(1)').show();

@@ -6,12 +6,14 @@
 <div class="close_window" style="position: absolute; top:5px; right:8px; display:none;">
 <a href="javascript:void(0)">x</a></div>
 
-<%= simple_form_for Imagepost.new, :html => {:multipart => true, remote: true} do |f| %>  
-<div class="image_upload" style="position: absolute; bottom:50px; right:5px; overflow:hidden;">
+<%= simple_form_for Imagepost.new, class: 'new_imagepost', 
+                                    :html => {:multipart => true, remote: true} do |f| %>  
+<div class="image_upload_comment">
 	<i class="icon-camera">	
       <div class="fileupload-buttonbar">
         <span class="btn.fileinput-button.button-avatar">           
-          <%= f.input :image, as: :file, label: false, input_html:{multiple: true} %>
+          <%= f.input :image, as: :file, label: false, input_html:{multiple: true, 
+                                                        class: 'imagepost_image_form'} %>
           <%= f.input :remember_token, as: :hidden,  input_html:{value: current_user.remember_token} %>
         </span>  
       </div>    

@@ -10,12 +10,16 @@ class ImagepostUploader < CarrierWave::Uploader::Base
   end
  
   version :upload do
-    process resize_to_limit: [500, 500]
+    process resize_to_limit: [800, 500]
   end
 
 
   version :gallery do
     process resize_to_limit: [200, 200]
+  end
+
+  version :right do
+    process resize_to_limit: [100, 100]
   end
 
   version :small do

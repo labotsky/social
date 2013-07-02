@@ -1,0 +1,1 @@
+$("#list").append("<span class='imagepost-<%=@imagepost.id%>'><%= j image_tag @imagepost.image_url(:right), class: 'thumb' %><div><%=j link_to 'x', @imagepost, method: :delete, remote: true %></div><span>");
