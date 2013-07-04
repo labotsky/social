@@ -43,7 +43,7 @@ class UsersController < ApplicationController
       redirect_to root_url
     else      
       @microposts = current_user.microposts.includes(:flaggings)
-      imagepost = Imagepost.where({micropost_id: nil, remember_token: current_user.remember_token})
+      imagepost = Imagepost.where({imagepostable_id: nil, remember_token: current_user.remember_token})
       imagepost.each{|i| i.destroy}        
     end  
   end

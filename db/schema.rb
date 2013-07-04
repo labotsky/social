@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130625190931) do
+ActiveRecord::Schema.define(:version => 20130704162122) do
 
   create_table "comments", :force => true do |t|
     t.text     "content"
@@ -36,11 +36,12 @@ ActiveRecord::Schema.define(:version => 20130625190931) do
   add_index "flaggings", ["flagger_type", "flagger_id", "flaggable_type", "flaggable_id"], :name => "access_flaggings"
 
   create_table "imageposts", :force => true do |t|
-    t.integer  "micropost_id"
     t.string   "image"
     t.string   "remember_token"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.integer  "imagepostable_id"
+    t.string   "imagepostable_type"
   end
 
   create_table "microposts", :force => true do |t|

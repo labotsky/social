@@ -14,7 +14,7 @@
             назад.
             (#{micropost.created_at.strftime("%d/%m/%y в %H:%M")}).
         %p.message= micropost.content
-        - imageposts = imageall(micropost.id)
+        - imageposts = imageall(micropost.id, 'Micropost')
         - unless imageposts.last == nil
           - imageposts.each_with_index do |imagepost, i|
             - if i==0

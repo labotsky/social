@@ -16,7 +16,7 @@ module MicropostsHelper
 		end		
 	end
 
-	def imageall(id)
-  		imageposts = Imagepost.where({micropost_id: id})
+	def imageall(id, type)
+  		imageposts = Imagepost.where({imagepostable_id: id, imagepostable_type: type})
   	end 
 end

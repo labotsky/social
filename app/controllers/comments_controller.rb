@@ -15,11 +15,21 @@ class CommentsController < ApplicationController
     @comment = Comment.new(params[:comment])
     @micropost = micropost(@comment.micropost_id)
     @comment = @micropost.comments.build(params[:comment])
-    if @comment.save
-      respond_to do |format|
-        format.js
-      end
-    end   
+    imagepost = Imagepost.where({imagepostable_id: nil, remember_token: current_user.remember_token})       
+    respond_to do |format|
+      if imagepost.empty?
+        if @comment.save 
+          imagepost.each{|i| i.update_attributes(imagepostable_id: @comment.id,
+                              imagepostable_type: 'Comment')}      
+          format.js
+        end   
+      else
+        @comment.save(validate: false)
+          imagepost.each{|i| i.update_attributes(imagepostable_id: @comment.id,
+                              imagepostable_type: 'Comment')}       
+          format.js 
+      end             
+    end  
   end
 
   def destroy

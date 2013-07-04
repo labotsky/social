@@ -14,6 +14,13 @@
             назад.
             (#{comment.created_at.strftime("%d/%m/%y в %H:%M")}).
         %p.message= comment.content
+        - imageposts = imageall(comment.id, 'Comment')
+        - unless imageposts.last == nil
+          - imageposts.each_with_index do |imagepost, i|
+            - if i==0
+              = render 'microposts/imagepost', type: :gallery, imagepost: imagepost
+            - else
+              = render 'microposts/imagepost', type: :small, imagepost: imagepost        
         %p{:class => "date_like date-like-#{comment.id}"}
           = render 'microposts/wholike', micropost: comment, title: 'comment'
         %div{:class => "people-#{comment.id}"}

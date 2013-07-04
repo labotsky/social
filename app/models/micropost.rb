@@ -1,7 +1,7 @@
 class Micropost < ActiveRecord::Base
   attr_accessible :content, :user_id, :image
   belongs_to :user
-  has_many :imageposts, dependent: :destroy
+  has_many :imageposts, as: :imagepostable, dependent: :destroy
   has_many :comments, dependent: :destroy
   validates :user_id, presence: true
   validates :content, presence: true

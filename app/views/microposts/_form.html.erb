@@ -1,10 +1,9 @@
 <%= simple_form_for Micropost.new, remote: true do |f| %>
   <%= f.input :content, as: :text, input_html:{id: 'status_message_fake_text', rows: 2,
-   placeholder: "Начать беседу...", tabindex: 1, cols: 40} %>
+   placeholder: "Начать беседу...", tabindex: 1, cols: 40, style:'width:495px'} %>
   <%= f.button :button, "Отправить", class: 'btn btn-mini pull-right btnarea', remote: true %>
 <% end %>
-<div class="close_window" style="position: absolute; top:5px; right:8px; display:none;">
-<a href="javascript:void(0)">x</a></div>
+
 
 <%= simple_form_for Imagepost.new, class: 'new_imagepost', 
                                     :html => {:multipart => true, remote: true} do |f| %>  
