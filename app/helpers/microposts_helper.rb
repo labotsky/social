@@ -18,5 +18,9 @@ module MicropostsHelper
 
 	def imageall(id, type)
   		imageposts = Imagepost.where({imagepostable_id: id, imagepostable_type: type})
+  	end
+
+  	def people(id)
+  	 	people = User.find_by_id(id)
   	end 
 end

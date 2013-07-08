@@ -15,10 +15,13 @@ end
 
 	def make_microposts
 		30.times do |n|
-			print '.'
-			content = Faker::Lorem.paragraph
-			user_id = 1
-			Micropost.create(content: content, user_id: user_id)
+			30.times do |m|
+				print '.'
+				content = Faker::Lorem.paragraph
+				user_id = m
+				post_user_id = 1 + Random.rand(30)
+				Micropost.create(content: content, user_id: user_id, post_user_id: post_user_id)
+			end
 		end	
 	end
 

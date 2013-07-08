@@ -1,13 +1,14 @@
-- micropost = current_user.microposts.first
+- micropost = @user.microposts.first
+- people = people(micropost.post_user_id)
 %li{:class => "head-post post-#{micropost.id} lastposts"}
   .row
     .span2
-      = image_tag current_user.image_url(:profile), class: "avatar_small"
+      = image_tag people.image_url(:profile), class: "avatar_small"
     .span5
       .row
         %p.username
-          = current_user.name
-          = current_user.surname
+          = people.name
+          = people.surname
           \-
           %span.dateuser
             = time_ago_in_words micropost.created_at

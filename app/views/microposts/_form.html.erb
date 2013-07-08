@@ -2,6 +2,7 @@
   <%= f.input :content, as: :text, input_html:{id: 'status_message_fake_text', rows: 2,
    placeholder: "Начать беседу...", tabindex: 1, cols: 40, style:'width:495px'} %>
   <%= f.button :button, "Отправить", class: 'btn btn-mini pull-right btnarea', remote: true %>
+  <%= f.input :post_user_id, as: :hidden,  input_html:{value: user.id} %>
 <% end %>
 
 

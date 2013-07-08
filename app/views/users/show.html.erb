@@ -7,19 +7,19 @@
 			<ul class="thumbnails">         
 	    		<li class="span4">
             <div id="user-photo">
-              <%= link_to current_user.image_url(:gallery), class: 'fancybox' do %>   
-  	    			  <%= image_tag current_user.image_url(:avatar), class: "avatar" %>
+              <%= link_to @people.image_url(:gallery), class: 'fancybox' do %>   
+  	    			  <%= image_tag @people.image_url(:avatar), class: "avatar" %>
               <% end %>
             </div>
 	    			<p class="info_about">
 	    			<strong>
-	    				<%= current_user.name %> 
-	    				<%= current_user.surname %>
+	    				<%= @people.name %> 
+	    				<%= @people.surname %>
 	    			</strong>
 	    			<br>
-	    			<strong>Страна:</strong> <%= current_user.country %><br>
-	    			<strong>Город:</strong> <%= current_user.sity %><br>
-	    			<strong>День Рождения:</strong> <br> <%= current_user.date %></p>   
+	    			<strong>Страна:</strong> <%= @people.country %><br>
+	    			<strong>Город:</strong> <%= @people.sity %><br>
+	    			<strong>День Рождения:</strong> <br> <%= @people.date %></p>   
 	    		</li>    
 			</ul>			
           <div>
@@ -59,7 +59,7 @@
           	<div class="nav-header">Мои друзья</div>
           	<ul class="thumbnails">
           		<li>
-          			<%= link_to current_user.image_url, class: 'fancybox' do %>   
+          			<%= link_to @people.image_url, class: 'fancybox' do %>   
                  <img src="http://placehold.it/50x50">
                 <% end %>          			
           		</li>
@@ -103,7 +103,7 @@
       <div class="wrapper" style="padding: 5px 0px 5px 5px;">
         <div class="row">
            <li style="margin-left:20px; list-style:none">
-            <%= render 'microposts/form', user: current_user %>
+            <%= render 'microposts/form', user: @people %>
            </li>       
         </div>
       </div>
@@ -112,8 +112,8 @@
     <div class="span7">	
      	<div class="post">
      		<ul class="head">    		
-     			 <% if current_user.microposts.any? %>    
-              <%= render 'microposts/micropost', user: current_user %>    
+     			 <% if @people.microposts.any? %>    
+              <%= render 'microposts/micropost', user: @people %>    
            <% end %>
      		</ul>
      	</div>	         	

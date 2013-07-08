@@ -6,6 +6,18 @@ class UsersController < ApplicationController
 
   def new
   	@user = User.new
+  end
+
+  def show
+    @people = User.find(params[:id])
+    if @people == current_user
+      redirect_to profile_path   
+    else  
+      @microposts = @people.microposts.includes(:flaggings)
+      respond_to do |format|
+        format.html
+      end
+    end   
   end  
 
   def create

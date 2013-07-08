@@ -1,4 +1,4 @@
-$(".post .head").prepend("<%= j render('micropostlast') %>");
+$(".post .head").prepend("<%= j render('micropostlast', user:@people) %>");
 $(".lastposts").fadeIn(1000);
 
 $("a.fancybox").fancybox({

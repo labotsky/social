@@ -2,9 +2,9 @@ Social::Application.routes.draw do
   get "static_pages/home"
   root :to => 'static_pages#home'
   match '/signup', to: 'users#new'
-  resources :users, :except => :show do
+  resources :users do
     get 'getting_started', :on => :member
-    get 'profile', :on => :member   
+    get 'profile', :on => :member
   end
   resources :microposts do
     get 'like', :on => :member   
@@ -12,7 +12,8 @@ Social::Application.routes.draw do
   resources :imageposts
   resources :comments do
     get 'like', :on => :member
-  end  
+  end
+  get 'people/:id', to: 'users#show'  
   match "getting_started" => "users#getting_started"
   match "profile" => "users#profile"
   resources :sessions, only: [:new, :create, :destroy]
