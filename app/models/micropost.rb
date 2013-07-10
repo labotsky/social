@@ -5,6 +5,7 @@ class Micropost < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   validates :user_id, presence: true
   validates :content, presence: true
+  validates :post_user_id, presence: true
   default_scope order: 'microposts.created_at DESC'
   make_flaggable :like
 end

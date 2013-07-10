@@ -15,6 +15,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(params[:comment])
     @micropost = micropost(@comment.micropost_id)
     @comment = @micropost.comments.build(params[:comment])
+    @comment.post_user_id = current_user.id
     imagepost = Imagepost.where({imagepostable_id: nil, remember_token: current_user.remember_token})       
     respond_to do |format|
       if imagepost.empty?

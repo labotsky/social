@@ -2,7 +2,7 @@ FactoryGirl.define do
 	factory :user do
 		name	"Sergey"
 		surname	"Labotsky"
-		email	"sergey1993.08@mail.ru"
+		sequence(:email) {|n| "person_#{n}@example.com"} 
 		country	"Belarus"
 		sity	"Minsk"
 		date	"1993-05-13"
@@ -12,5 +12,6 @@ FactoryGirl.define do
 	factory :micropost do
 		content "Lorem ipsum"
 		user
+		post_user_id 1
 	end	
 end

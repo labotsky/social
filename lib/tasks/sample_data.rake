@@ -42,11 +42,12 @@ end
 	end
 
 	def make_comments
-		200.times do |n|
+		400.times do |n|
 			print '.'
 			content = Faker::Lorem.paragraph
 			micropost_id = 1 + Random.rand(30)
-			Comment.create(content: content, micropost_id: micropost_id)
+			post_user_id = 1 + Random.rand(30)
+			Comment.create(content: content, micropost_id: micropost_id, post_user_id: post_user_id)
 		end	
 	end
 	

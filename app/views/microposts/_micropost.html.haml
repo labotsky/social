@@ -1,5 +1,5 @@
 - @microposts.each do |micropost|
-  - people = people(micropost.post_user_id)
+- people = people(micropost.post_user_id)
   %li{:class => "head-post post-#{micropost.id}"}
     .row
       .span2
@@ -7,8 +7,9 @@
       .span5
         .row
           %p.username
-            = people.name
-            = people.surname
+            = link_to people_path(people) do
+              = people.name
+              = people.surname
             \-
             %span.dateuser
               = time_ago_in_words micropost.created_at
@@ -30,15 +31,17 @@
       = link_to "x", micropost, method: :delete, remote: true, confirm: "Вы уверены?"
   %ul{:class => "comment comment-in-#{micropost.id}"}
     - micropost.comments.each do |comment|
+    - people = people(comment.post_user_id)
       %li{:class => "post-comment-#{comment.id}"}
         .row
           .span_photo_comment
-            = image_tag user.image_url(:profile), class: "avatar_comment"
+            = image_tag people.image_url(:profile), class: "avatar_comment"
           .span_text_comment
             .row
               %p.username
-                = user.name
-                = user.surname
+                = link_to people_path(people) do
+                  = people.name
+                  = people.surname
                 \-
                 %span.dateuser
                   = time_ago_in_words comment.created_at

@@ -55,8 +55,8 @@ describe "User Pages" do
 
 		describe "profile page" do
 			let(:user){FactoryGirl.create(:user)}
-			let!(:m1){FactoryGirl.create(:micropost, user: user, content:'Foo')}
-			let!(:m2){FactoryGirl.create(:micropost, user: user, content:'Bar')}
+			let!(:m1){FactoryGirl.create(:micropost, user: user, content:'Foo', post_user_id:user.id)}
+			let!(:m2){FactoryGirl.create(:micropost, user: user, content:'Bar', post_user_id:user.id)}
 			before do
 			visit root_path
 			fill_in "session_email", with: user.email.upcase

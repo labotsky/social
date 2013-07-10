@@ -13,7 +13,7 @@ Social::Application.routes.draw do
   resources :comments do
     get 'like', :on => :member
   end
-  get 'people/:id', to: 'users#show'  
+  get '/people/:id', to: 'users#show', as: 'people'  
   match "getting_started" => "users#getting_started"
   match "profile" => "users#profile"
   resources :sessions, only: [:new, :create, :destroy]

@@ -1,5 +1,6 @@
 # encoding: UTF-8
 class UsersController < ApplicationController
+  before_filter :authorize, except: [:new, :create]
   def index
     @user = User.all
   end
@@ -44,19 +45,19 @@ class UsersController < ApplicationController
     @user.update_attributes(params[:user])       
   end
 
-  def getting_started
-     unless signed_in?
-      redirect_to root_url
-     end   
+  def getting_started 
   end
 
-  def profile         
+  def profile
+    @people = current_user 
+    @microposts = current_user.microposts.includes(:flaggings)
+    imagepost = Imagepost.where({imagepostable_id: nil, remember_token: current_user.remember_token})
+    imagepost.each{|i| i.destroy} 
+  end
+
+  def authorize
     unless signed_in?
       redirect_to root_url
-    else      
-      @microposts = current_user.microposts.includes(:flaggings)
-      imagepost = Imagepost.where({imagepostable_id: nil, remember_token: current_user.remember_token})
-      imagepost.each{|i| i.destroy}        
     end  
   end
 end
