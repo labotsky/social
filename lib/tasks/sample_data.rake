@@ -4,7 +4,8 @@ namespace :db do
 		make_admin
 		make_users		
 		make_microposts
-		make_comments		
+		make_comments
+		make_friends		
 	end	
 end
 	
@@ -49,5 +50,15 @@ end
 			post_user_id = 1 + Random.rand(30)
 			Comment.create(content: content, micropost_id: micropost_id, post_user_id: post_user_id)
 		end	
+	end
+
+	def make_friends
+		print '.'
+		users = User.all
+		user = User.first
+		followed_users = users[2..30]
+		followers = users[3..20]
+		followed_users.each{|followed| user.follow!(followed)}
+		followers.each{|follower| follower.follow!(user)}
 	end
 	

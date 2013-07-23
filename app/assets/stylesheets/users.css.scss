@@ -135,3 +135,13 @@
 .shadow:hover{	
 	opacity: .7;
 }
+
+.friends_img{
+	width:40px;
+	height:40px;
+	transition: all 0.5s linear;
+}
+
+.friends_img:hover{
+	opacity:.5;
+}

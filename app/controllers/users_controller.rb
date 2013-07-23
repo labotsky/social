@@ -15,6 +15,7 @@ class UsersController < ApplicationController
       redirect_to profile_path   
     else  
       @microposts = @people.microposts.includes(:flaggings)
+      @friends = (@people.followed_users+@people.followers).uniq
       respond_to do |format|
         format.html
       end
@@ -49,7 +50,8 @@ class UsersController < ApplicationController
   end
 
   def profile
-    @people = current_user 
+    @people = current_user
+    @friends = (current_user.followed_users+current_user.followers).uniq
     @microposts = current_user.microposts.includes(:flaggings)
     imagepost = Imagepost.where({imagepostable_id: nil, remember_token: current_user.remember_token})
     imagepost.each{|i| i.destroy} 

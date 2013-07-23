@@ -51,51 +51,23 @@
                 		<% end %>
                 	</li>						   
 			    </ul>
-          </div><!--/.well -->
+          </div><!--/.well -->       
 
-          
-
-          <div>
-          	<div class="nav-header">Мои друзья</div>
-          	<ul class="thumbnails">
-          		<li>
-          			<%= link_to @people.image_url, class: 'fancybox' do %>   
-                 <img src="http://placehold.it/50x50">
-                <% end %>          			
-          		</li>
-          		<li>
-          			<img src="http://placehold.it/50x50">
-          			
-          		</li>
-          		<li>
-          			<img src="http://placehold.it/50x50">
-          			
-          		</li>
-          		<li>
-          			<img src="http://placehold.it/50x50">
-          			
-          		</li>
-          		<li>
-          			<img src="http://placehold.it/50x50">
-          			
-          		</li>
-          		<li>
-          			<img src="http://placehold.it/50x50">
-          			
-          		</li>
-          		<li>
-          			<img src="http://placehold.it/50x50">
-          			
-          		</li>
-          		<li>
-          			<img src="http://placehold.it/50x50">
-          			
-          		</li>
-          		<li>
-          			<img src="http://placehold.it/50x50">
-          			
-          		</li>
-          	</ul>
+          <div>          	
+            <% if @friends.any? %>
+              <div>            
+                <div class="nav-header" style="margin-left: -32px;">Друзья (<%=@friends.count%>)</div>
+                  <ul class="thumbnails">
+                    <% @friends.each do |friend| %>
+                      <li>
+                        <%= link_to people_path(friend) do %>   
+                          <%= image_tag friend.image_url(:profile), class: "friends_img" %>
+                        <% end %>                                 
+                      </li>
+                    <% end %>           
+                  </ul>
+                </div>
+            <% end %>
           </div>	
     	</div><!--/span-->			
 
